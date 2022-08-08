@@ -1,0 +1,121 @@
+// Override Bootstrap's Sass default variables
+//
+// Nearly all variables in Bootstrap are written with the `!default` flag.
+// This allows you to override the default values of those variables before
+// you import Bootstrap's source Sass files.
+//
+// Overriding the default variable values is the best way to customize your
+// CSS without writing _new_ styles. For example, change you can either change
+// `$body-color` or write more CSS that override's Bootstrap's CSS like so:
+// `body { color: red; }`.
+
+
+//
+// Bring in Bootstrap
+//
+
+// Option 1
+//
+// Import all of Bootstrap's CSS
+
+// @import "bootstrap/scss/bootstrap";
+
+// Option 2
+//
+// Place variable overrides first, then import just the styles you need. Note that some stylesheets are required no matter what.
+
+// Toggle global options
+$enable-gradients: true;
+$enable-shadows: true;
+
+// Customize some defaults
+$body-color: #333;
+$body-bg: #fff;
+$border-radius: .4rem;
+$success: #7952b3;
+
+@import "bootstrap/scss/functions"; // Required
+@import "bootstrap/scss/variables"; // Required
+@import "bootstrap/scss/mixins"; // Required
+
+@import "bootstrap/scss/root"; // Required
+@import "bootstrap/scss/reboot"; // Required
+@import "bootstrap/scss/type";
+// @import "bootstrap/scss/images";
+// @import "bootstrap/scss/code";
+@import "bootstrap/scss/grid";
+// @import "bootstrap/scss/tables";
+// @import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/transitions";
+// @import "bootstrap/scss/dropdown";
+// @import "bootstrap/scss/button-group";
+// @import "bootstrap/scss/input-group"; // Requires forms
+// @import "bootstrap/scss/custom-forms";
+// @import "bootstrap/scss/nav";
+// @import "bootstrap/scss/navbar"; // Requires nav
+// @import "bootstrap/scss/card";
+// @import "bootstrap/scss/breadcrumb";
+// @import "bootstrap/scss/pagination";
+// @import "bootstrap/scss/badge";
+// @import "bootstrap/scss/jumbotron";
+// @import "bootstrap/scss/alert";
+// @import "bootstrap/scss/progress";
+// @import "bootstrap/scss/media";
+// @import "bootstrap/scss/list-group";
+@import "bootstrap/scss/close";
+// @import "bootstrap/scss/toasts";
+@import "bootstrap/scss/modal"; // Requires transitions
+// @import "bootstrap/scss/tooltip";
+// @import "bootstrap/scss/popover";
+// @import "bootstrap/scss/carousel";
+// @import "bootstrap/scss/spinners";
+@import "bootstrap/scss/utilities";
+// @import "bootstrap/scss/print";
+
+
+//
+// Custom styles
+//
+
+@import "./icon-list";
+
+body {
+  padding: 3rem 1.5rem;
+}
+
+// Style Bootstrap icons
+.bi {
+  fill: currentColor;
+}
+
+.bi::before {
+  display: inline-block;
+  content: "";
+  vertical-align: -.125em;
+  background-image: url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' d='M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z' clip-rule='evenodd'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 1rem 1rem;
+}
+
+.icon-my-test::before {
+  display: block;
+  flex-shrink: 0;
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: .5rem;
+  content: "";
+  background: url(../svg/xbox.svg) no-repeat center center / 100% auto;
+}
+
+.img-icon-1 {
+  width: 512px;
+  height: 383px;
+  background-image: url(../images/test1.jpg);
+}
+
+.img-icon-2 {
+  width: 486px;
+  height: 334px;
+  background-image: url(../images/test2.png);
+}
