@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-webpack-starter",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "public": true,
   "description": "Demo project for building a Bootstrap powered site via webpack.",
   "author": "dclnet",

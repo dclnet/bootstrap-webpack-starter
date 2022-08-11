@@ -13,14 +13,12 @@ module.exports = {
     filename: 'js/[name]-[fullhash:8].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    publicPath: '/',
-    assetModuleFilename: "[hash][ext]",
+    // publicPath: '/', //<- remove it or set a publicPath value (don't "")
   },
   devServer: {
     static: path.resolve(__dirname, 'dist'),
     port: 3000
   },
-  // devtool: 'inline-source-map',
   optimization: {
     runtimeChunk: 'single'
   },
@@ -61,16 +59,14 @@ module.exports = {
         test: /\.(png|jpg|jpeg|gif)$/i,
         type: 'asset',
         generator: {
-          publicPath: 'img/',
-          outputPath: 'img'
+          filename: 'img/[name]-[hash:8][ext]'
         }
       },
       {
         test: /\.svg$/i,
         type: 'asset',
         generator: {
-          publicPath: 'svg/',
-          outputPath: 'svg'
+          filename: 'svg/[name]-[hash:8][ext]'
         },
         parser: {
           dataUrlCondition: {
@@ -83,9 +79,6 @@ module.exports = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: 'css/'
-            }
           },
           {
             loader: 'css-loader', // translates CSS into CommonJS modules
